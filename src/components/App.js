@@ -13,8 +13,18 @@ const App = () => {
     return(
         <Router>
             <Switch>
-                <Route />
-                <Route />
+                <Route 
+                       exact path="/" 
+                       render={() => (
+                         <Products />
+                       )}
+                />
+                <Route 
+                    path="/checkout" 
+                    render={() => (
+                        <Checkout />
+                    )} 
+                />
             </Switch>
         </Router>
     )
