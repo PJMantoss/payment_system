@@ -29,5 +29,42 @@ const CheckoutForm = ({ selectedProduct, stripe, history }) => {
             source: token.id,
             receipt_email: 'customer@example.com'
         })
+
+        setReceiptUrl(order.data.charge.receipt_url)
     }
+
+    if (receiptUrl){
+        return (
+            <div className="success">
+                <h2>Payment Successful!</h2>
+                <a href={receiptUrl}>View Receipt</a>
+                <Link to="/">Home</Link>
+            </div>
+        )
+    }
+
+    return(
+        <div className="checkout-form">
+            <p>Amount: ${selectedProduct.price}</p>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Card Details
+                    <CardNumberElement />
+                </label>
+                <label>
+                    Expiration Date
+                    <CardExpiryElement />
+                </label>
+                <label>
+                    CVC
+                    <CardCVCElement />
+                </label>
+                <button type="submit" className="order-button">
+                    Pay
+                </button>
+            </form>
+        </div>
+    )
 }
+
+export default injectStripe(CheckoutForm);
