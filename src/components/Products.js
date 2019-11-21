@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Products.scss'
 
 const Products = ({ products, selectProduct, history }) => {
     const handlePurchase = prod => () => {
