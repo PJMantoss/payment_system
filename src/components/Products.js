@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Products.scss'
+import './Products.scss';
 
 const Products = ({ products, selectProduct, history }) => {
     const handlePurchase = prod => () => {
@@ -12,7 +12,7 @@ const Products = ({ products, selectProduct, history }) => {
             <section>
                 <h2>{prod.name}</h2>
                 <p>{prod.desc}</p>
-                <h3>{'$' prod.price}</h3>
+                <h3>{'$' + prod.price}</h3>
                 <button type="button" onClick={handlePurchase(prod)}>
                     PURCHASE
                 </button>
