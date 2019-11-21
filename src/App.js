@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import Products from './components/Products'
+import Checkout from './components/Checkout'
+import { products } from './products'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const history = createBrowserHistory()
+
+const App = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null)
+
+  return(
+        <Router>
+            <Switch>
+                <Route 
+                       exact path="/" 
+                       render={() => (
+                         <Products 
+                             products={products} 
+                             selectProduct={setSelectedProduct} 
+                             history={history} 
+                         />
+                       )}
+                />
+                <Route 
+                    path="/checkout" 
+                    render={() => (
+                        <Checkout selectedProduct={selectedProduct} history={history} />
+                    )} 
+                />
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
