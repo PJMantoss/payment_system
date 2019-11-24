@@ -63,4 +63,26 @@
     margin-top: 5%;
     background-color: #008cdd;
     border: 1px solid #008cdd;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    width: 200px;
+    transition: opacity 200ms;
+    cursor: pointer;
+
+    &.success {
+        background-color: seagreen;
+        border-color: seagreen;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
