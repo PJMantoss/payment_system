@@ -10,12 +10,12 @@ import axios from 'axios';
 import './CheckoutForm.scss';
 
 const CheckoutForm = ({ selectedProduct, stripe, history }) => {
+    const [receiptUrl, setReceiptUrl] = useState('');
+    
     if(selectedProduct === null) {
         history.push('/')
         return null
     }
-
-    const [receiptUrl, setReceiptUrl] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault()

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import Products from './components/Products'
 import Checkout from './components/Checkout'
@@ -12,7 +12,7 @@ const App = () => {
   const [selectedProduct, setSelectedProduct] = useState(null)
 
   return(
-        <Router>
+        <BrowserRouter>
             <Switch>
                 <Route 
                        exact path="/" 
@@ -31,7 +31,7 @@ const App = () => {
                     )} 
                 />
             </Switch>
-        </Router>
+        </BrowserRouter>
     );
 }
 
