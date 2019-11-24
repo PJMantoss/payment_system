@@ -20,10 +20,11 @@
     "stripe": "^7.13.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node src/server.js",
+    "build": "parcel build public/index.html --out-dir build --no-source-maps",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "node src/server.js & parcel public/index.html"
   },
   "eslintConfig": {
     "extends": "react-app"
